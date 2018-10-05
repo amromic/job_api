@@ -6,12 +6,19 @@ class JobsController < ApplicationController
    end
   
    def create 
-      #render plain: params[:job].inspect
       @job = Job.new(job_params)
-      @job.save
-      redirect_to jobs_show(@job)
+      if @job.save
+       flash[:notice] = "Job post was successfully added"
+       redirect_to job_path(@job)
+      else 
+       render 'new'
+   end
+end
+   def show 
+       @job = Job.find(params[:id])
    end
    
+      
    private 
     def job_params
       params.require(:job).permit(:title, :description)

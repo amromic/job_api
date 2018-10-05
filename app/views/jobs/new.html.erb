@@ -1,6 +1,15 @@
 
 <h1> Create an Job Post here !</h1>
 
+<% if @job.errors.any? %>
+<h3>The following errors prevented the new Job post from getting created!</h3>
+ <ul style="list-style-type:circle">
+     <% @job.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+     <% end %>
+ </ul>
+<% end %>
+
 <%= form_for @job do |f| %>
 <p>
 <%= f.label :title %></br>
