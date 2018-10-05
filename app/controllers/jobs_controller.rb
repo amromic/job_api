@@ -42,6 +42,7 @@ end
        @job.destroy
        flash[:notice] = "Job post was successfully deleted"
        redirect_to jobs_path
+       
    end
    
    private 
