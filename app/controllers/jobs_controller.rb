@@ -37,6 +37,13 @@ end
    end
    end
    
+   def destroy
+       @job = Job.find(params[:id])
+       @job.destroy
+       flash[:notice] = "Job post was successfully deleted"
+       redirect_to jobs_path
+   end
+   
    private 
     def job_params
       params.require(:job).permit(:title, :description)
