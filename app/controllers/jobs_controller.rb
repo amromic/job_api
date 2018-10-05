@@ -1,6 +1,8 @@
 
 class JobsController < ApplicationController 
-   
+    before_action :set_job, only: [:show, :edit, :update, :destroy]
+    
+    
    def index 
       @jobs = Job.all 
    end
@@ -19,16 +21,16 @@ class JobsController < ApplicationController
    end
 end
    def show 
-       @job = Job.find(params[:id])
+       #@job = Job.find(params[:id])
    end
    
    
    def edit 
-      @job = Job.find(params[:id]) 
+      #@job = Job.find(params[:id]) 
    end
    
    def update
-       @job = Job.find(params[:id])
+       #@job = Job.find(params[:id])
        if @job.update(job_params)
        flash[:notice] = "Job post was successfully updated"
        redirect_to job_path(@job)
@@ -38,14 +40,18 @@ end
    end
    
    def destroy
-       @job = Job.find(params[:id])
+       #@job = Job.find(params[:id])
        @job.destroy
        flash[:notice] = "Job post was successfully deleted"
        redirect_to jobs_path
        
    end
    
-   private 
+   private
+    def set_job
+        @job = Job.find(params[:id])
+    end
+   
     def job_params
       params.require(:job).permit(:title, :description)
    end
