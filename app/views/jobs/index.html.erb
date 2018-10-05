@@ -1,0 +1,21 @@
+<h1> List of All Job posts</h1>
+
+<p>
+    <%= link_to "Add new post 'Job'", new_job_path %>
+</p>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    
+<% @jobs.each do |job| %>
+<tr>
+    <td> <%= job.title %></td>
+    <td> <%= job.description %></td>
+    <td> <%= link_to "Edit", edit_job_path(job) %></td>
+    <td> <%= link_to "Show", job_path(job) %></td>
+  </tr>
+<% end %>
+</table>
