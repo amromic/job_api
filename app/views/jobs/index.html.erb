@@ -1,22 +1,21 @@
-<h1> List of All Job posts</h1>
+<h3 align="center" class="job-board-style">Job Board</h3>
 
-<p>
-    <%= link_to "Add new post 'Job'", new_job_path %>
-</p>
+<hr>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-    </tr>
-    
 <% @jobs.each do |job| %>
-<tr>
-    <td> <%= job.title %></td>
-    <td> <%= job.description %></td>
-    <td> <%= link_to "Edit", edit_job_path(job) %></td>
-    <td> <%= link_to "Show", job_path(job) %></td>
-    <td> <%= link_to "Delete", job_path(job), method: :delete, data:{confirm: "Are you sure?"} %></td>
-  </tr>
+    <div class="row">
+     <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+      <div class="job-title">
+      <%= link_to job.title, job_path(job) %>
+      </div>
+        <div class="job-body">
+         <%= truncate(job.description, length: 20) %>
+      </div>
+       <div class="job-actions">
+         <%= link_to 'Quick Apply', edit_job_path(job), class:"btn btn-xs btn-primary" %>
+    </div>   
+  </div>
+ </div>
+</div>
 <% end %>
-</table>
