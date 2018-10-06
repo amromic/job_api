@@ -1,2 +1,33 @@
+$navbar-default-bg: #ffa500;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#logo{
+    float:left;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.center{
+    width :70%;
+    margin :40px auto;
+}
+
+.jumbotron{
+    background-image: asset-url("463607_work-desk-wallpaper.jpg");
+    background-size : cover;
+    height : 500px;
+}
+
+
+footer {
+    margin-top: 45px;
+    padding-top:5px;
+    border-top: 1px solid #eaeaea;
+    color: #777;
+    
+}
