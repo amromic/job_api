@@ -1,12 +1,4 @@
-
-<% if @job.errors.any? %>
-<h3>The following errors prevented the new Job post from getting created!</h3>
- <ul style="list-style-type:circle">
-     <% @job.errors.full_messages.each do |msg| %>
-     <li><%= msg %></li>
-     <% end %>
- </ul>
-<% end %>
+<%= render 'shared/errors', obj: @job %>
 
 
 <div class ='row'>
