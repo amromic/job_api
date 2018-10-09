@@ -1,6 +1,7 @@
 
 class JobsController < ApplicationController 
     before_action :set_job, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except:[:show, :index]
     
     
    def index 
@@ -25,7 +26,7 @@ end
    end
    
    
-   def edit 
+def edit 
       #@job = Job.find(params[:id]) 
    end
    

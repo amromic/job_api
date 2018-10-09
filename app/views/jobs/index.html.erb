@@ -11,12 +11,20 @@
         <div class="job-body">
          <%= truncate(job.description, length: 20) %>
       </div>
-      
+         <% if !current_user.admin %>
+         
        <div class="job-actions">
          <%= link_to 'Quick Apply', edit_job_path(job), class:"btn btn-xs btn-warning" %>
+         
+         <% end %>
+         
+         <% if current_user && current_user.admin %>
+         
          <%= link_to "Edit", edit_job_path(job), class: "btn btn-xs btn-info" %>
          <%= link_to "Delete", job_path(job), method: :delete,data: { confirm: "Are you sure you want to delete this job post?"},
         class: "btn btn-xs btn-danger" %>
+        
+        <% end %>
     </div>   
   </div>
  </div>
