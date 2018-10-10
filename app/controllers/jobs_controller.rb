@@ -43,10 +43,12 @@ def edit
    def destroy
        #@job = Job.find(params[:id])
        @job.destroy
-       flash[:danger] = "Job post was successfully deleted"
+       flash[:success] = "Job post was successfully deleted"
        redirect_to jobs_path
        
    end
+   
+   
    
    private
     def set_job
