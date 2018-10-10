@@ -7,8 +7,6 @@ end
 
 def about
     
-    flash[:warning] = "You have been applied, Thank you"
-    redirect_to root_path
 end
 
 
